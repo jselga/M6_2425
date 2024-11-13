@@ -32,35 +32,35 @@ console.log(llibre4, llibre4.autor);
 
 function c_llibre2(p_titol, p_pag) {
     this.titol = p_titol;
-    this.pagines = p_pag; 
+    this.pagines = p_pag;
     this.pag_seguent = function () {
         this.pagAct++;
-        if(this.pagAct > this.pagines)
-        this.pagAct = 0;
+        if (this.pagAct > this.pagines)
+            this.pagAct = 0;
     }
 }
 
 
 llibre5 = new c_llibre2('Alegria5', 400);
 console.log(llibre5);
-llibre5.pagAct=400;
+llibre5.pagAct = 400;
 console.log(llibre5);
 llibre5.pag_seguent();
 console.log(llibre5);
 
-function pag_seguent_f (){
+function pag_seguent_f() {
     this.pagAct++;
-    if(this.pagAct > this.pagines) this.pagAct =0;
+    if (this.pagAct > this.pagines) this.pagAct = 0;
 }
 function c_llibre3(p_titol, p_pag) {
     this.titol = p_titol;
-    this.pagines = p_pag; 
-    this.pag_seguent =pag_seguent_f;
+    this.pagines = p_pag;
+    this.pag_seguent = pag_seguent_f;
 }
 
 llibre6 = new c_llibre3('Titol llibre 6', 125);
 console.log(llibre6);
-llibre6.pagAct=100;
+llibre6.pagAct = 100;
 llibre6.pag_seguent();
 console.log(llibre6);
 
@@ -68,7 +68,74 @@ console.log(llibre6);
 
 
 // Llistar propietats
-for (var prop in llibre5){
-    document.write(prop, ": ", llibre5[prop],"<br>");
-    
+for (var prop in llibre5) {
+    document.write(prop, ": ", llibre5[prop], "<br>");
+
 }
+
+// Existencia de propietats
+document.write("<h2>Existeix la propietat?</h2>")
+var prop1 = "titol"
+if (prop1 in llibre5) {
+    document.write(`La propietat <strong>${prop1}</strong> `, " existeix a l'objecte")
+} else { document.write("NO") }
+
+document.write("<h2><em>Existeix la propietat?</em></h2>")
+var prop1 = "pagines"
+if (typeof llibre5[prop1] != 'undefined') {
+    document.write(`La propietat <strong>${prop1}</strong> `, " existeix a l'objecte")
+}
+else { document.write("NO") }
+// La propietat és de la classe o no
+document.write("<h2>La propietat és del Objecte?</h2>")
+var prop1 = "titol"
+if (llibre5.hasOwnProperty(prop1)) {
+    document.write(`La propietat <strong>${prop1}</strong> `, " SI és de l'objecte")
+} else { document.write("NO") }
+
+// Visibilitat i accés de variables
+function c_obj(v) {
+    this.property = v;
+    var prop_priv = 17;
+}
+
+function c_obj1(v1) {
+    this.property = v1;
+    var propPriv = 0;
+    this.getpropPriv = function () {
+        return propPriv
+    };
+    this.setpropPriv = function (v2) {
+        propPriv = v2
+    };
+}
+var obj = new c_obj1;
+var a = obj.getpropPriv();
+console.log(`Propietat Privada: ${a}`);
+obj.setpropPriv(10);
+a = obj.getpropPriv();
+console.log(`Propietat Privada després de set: ${a}`);
+// Visibilitat i accés de mètodes
+function c_obj2(v1) {
+    this.property = v1;
+    var metPriv = function (p) {
+        console.log(`Sóc el paràmetre amb valor ${p} dins del mètode privat`);
+    }
+    this.metPubl = function () {
+        return metPriv
+    };
+
+};
+var obj2 = new c_obj2;
+
+
+var met = obj2.metPubl();
+met('Hola');
+
+
+var obj3 = new c_obj2;
+var met = obj3.metPubl();
+met('Adéu');
+met.call(obj3,'Adéu altre cop')
+
+
