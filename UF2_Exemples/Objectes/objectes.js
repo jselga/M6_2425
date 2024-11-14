@@ -136,6 +136,25 @@ met('Hola');
 var obj3 = new c_obj2;
 var met = obj3.metPubl();
 met('Adéu');
-met.call(obj3,'Adéu altre cop')
+met.call(obj3, 'Adéu altre cop')
 
 
+//Declaració objectes ES6 i ES2022+
+console.log("El mateix però amb JS modern ES2022+")
+class c_obj3 {
+    constructor(v1) {
+        this.property = v1;
+
+    }
+    //El simbol # s'introduiex a ES2022+
+    #metPriv(p) {
+        console.log(`Sóc el paràmetre amb valor ${p} dins del mètode privat`);
+    }
+    metPubl() {
+        return this.#metPriv
+    };
+
+}
+var obj3 = new c_obj3;
+var met = obj3.metPubl();
+met('Hola');

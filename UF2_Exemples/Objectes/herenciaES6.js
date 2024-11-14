@@ -19,4 +19,22 @@ class LlibreTradic extends DocumentPaper {
 odisea = new LlibreTradic(200, "Homer");//Instància
 odisea.titol = "L'Odisea"
 // odisea.material
-odisea.mostrar()
+odisea.mostrar();
+
+// Exemples amb sobreescriptura de mètodes
+
+class Animal {
+    parlar() {
+      console.log("L'animal fa un soroll.");
+    }
+  }
+  
+class Gos extends Animal {
+    parlar() {
+      super.parlar(); // Crida al mètode parlar de la classe pare
+      console.log("El gos borda.");
+    }
+  }
+  
+  const gos = new Gos();
+  gos.parlar(); 
