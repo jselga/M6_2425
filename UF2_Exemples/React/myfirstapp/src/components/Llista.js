@@ -1,11 +1,11 @@
 export function Llista(props) {
-    let r = [];
-    for(let item of props.data){
-        r.push(
-            <tr>
-                <td>{item}</td>
-            </tr>
-        )
-    }
-    return <table>{r}</table>
+    return <table>
+        <tbody>
+            {props.data.map(item => (
+                <tr>
+                    <td>{item}</td>
+                </tr>
+            ))}
+        </tbody>
+    </table>
 }
