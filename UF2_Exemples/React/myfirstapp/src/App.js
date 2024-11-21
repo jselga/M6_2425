@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 
-function Car() {
-  return <h2>I am a Car!</h2>;
+function Car(props) {
+  return <h2>I am a { props.brand }!</h2>;
 }
 
 function Garage() {
-   return (
+  const carName = "Ford";
+  return (
     <>
       <h1>Who lives in my garage?</h1>
-      <Car />
+      <Car brand={ carName } />
     </>
   );
 }
