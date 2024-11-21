@@ -1,22 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
 
 function Car(props) {
-  const [color, setColor] = useState("red");
-  return <>
-    <h2>I am a {props.marca} Car color {color}!</h2>
-    <button
-      type="button"
-      onClick={() => {
-        let cc = prompt("color:")
-        if (cc) {
-          setColor(cc)
-        }
-      }
-      }
-    >Botó</button>
-    </>
+  return <h2>I am a { props.brand }!</h2>;
 }
 
 function Garage() {
