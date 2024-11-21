@@ -4,6 +4,10 @@ import { Llista } from "./Llista";
 export function Container(){
     let [titol, setTitol] = useState("Titol Llista");
     let [dades, setDades] = useState(["John Doe", "Pepe", "manel"]);
+    function removeElem(){
+        dades.splice(0,1);
+        setDades([...dades]);
+    }
     function addElem() {
         let elem = prompt("Nou item de la llista");
         if (elem) {
@@ -24,6 +28,7 @@ export function Container(){
         <div>
             <Llista data={dades} />
             <button onClick={addElem}>Afegir</button>
+            <button  onClick={(removeElem)}>Eliminar</button>
         </div>
         </>
     )
