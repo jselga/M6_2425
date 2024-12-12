@@ -18,7 +18,11 @@ form.onsubmit = (e)=>{
     // elements.forEach(x=>console.log(x));
     elements.forEach((element,index)=>{
         element.addEventListener('click',()=>{
-            console.log(element,index);
+            //eliminem del DOM
+            element.parentNode.removeChild(element);
+            // eliminem de l'array
+            todos.splice(i,1);
+            console.log(todos,index);
         })
         
         
