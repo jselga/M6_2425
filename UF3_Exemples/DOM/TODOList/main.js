@@ -17,7 +17,10 @@ form.onsubmit = (e)=>{
     // Array.from(elements);
     // elements.forEach(x=>console.log(x));
     elements.forEach((element,index)=>{
-        console.log(element,index);
+        element.addEventListener('click',()=>{
+            console.log(element,index);
+        })
+        
         
     })
     
