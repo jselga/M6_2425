@@ -13,6 +13,14 @@ form.onsubmit = (e)=>{
     const todosTemplate = todos.map( element=> '<li>' + element+'</li>');
     console.log(todosTemplate);
     todoList.innerHTML = todosTemplate.join('');
+    const elements = document.querySelectorAll('#todo-list li')
+    // Array.from(elements);
+    // elements.forEach(x=>console.log(x));
+    elements.forEach((element,index)=>{
+        console.log(element,index);
+        
+    })
+    
     
 
     
