@@ -10,11 +10,12 @@ form.onsubmit = (e)=>{
     todo.value ='';
     todos.push(todoText);
     const todoList = document.getElementById('todo-list');
-    todoList.innerHTML='';
-    for (let i = 0; i < todos.length; i++) {
-        todoList.innerHTML += '<li>' +todos[i] +'</li>'
-        
-    }
+    const todosTemplate = todos.map( element=> '<li>' + element+'</li>');
+    console.log(todosTemplate);
+    todoList.innerHTML = todosTemplate.join('');
+    
+
+    
     
 }
 }
