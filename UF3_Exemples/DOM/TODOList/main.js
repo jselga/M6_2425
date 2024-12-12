@@ -21,7 +21,7 @@ form.onsubmit = (e)=>{
             //eliminem del DOM
             element.parentNode.removeChild(element);
             // eliminem de l'array
-            todos.splice(i,1);
+            todos.splice(index,1);
             console.log(todos,index);
         })
         
